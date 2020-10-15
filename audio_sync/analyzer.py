@@ -369,7 +369,7 @@ def _ComputeLatencyInChunk(ref_signal, act_signal, win_size,
   win_start_neg = False
 
 #win_size=0.9*1period(100ms数据)
-#pulse_duration_secs=0.2(default)
+#pulse_duration_secs=0.002(default)
   samples_per_pulse = pulse_duration_secs * samp_freq
   ind_win_start = _GetNextWinStart(
       ref_signal, samples_per_pulse, win_size, dropout_threshold)
