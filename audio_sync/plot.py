@@ -68,7 +68,7 @@ def GetConditionsInTimeframe(
   i = j = 0
   t = 0.0
   timeline = []
-  for _ in xrange(num_intervals):
+  for _ in range(num_intervals):
     next_t = t + interval_secs
     conditions = set()
 
@@ -135,7 +135,7 @@ def GetPlotString(conditions_timeline, timeline_secs, num_ticks):
   # Times.
   tick_duration_secs = timeline_secs / num_ticks
   times = []
-  for i in xrange(1, num_ticks + 1):
+  for i in range(1, num_ticks + 1):
     t_str = '%.2fs' % (i * tick_duration_secs)
     times.append((dots_per_tick - len(t_str)) * ' ' + t_str)
   times_line = ''.join(times)

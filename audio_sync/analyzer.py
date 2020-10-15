@@ -368,6 +368,8 @@ def _ComputeLatencyInChunk(ref_signal, act_signal, win_size,
   ret = []
   win_start_neg = False
 
+#win_size=0.9*1period(100ms数据)
+#pulse_duration_secs=0.2(default)
   samples_per_pulse = pulse_duration_secs * samp_freq
   ind_win_start = _GetNextWinStart(
       ref_signal, samples_per_pulse, win_size, dropout_threshold)
@@ -466,6 +468,7 @@ def DetermineLatenciesAndDropouts(ref_wave_reader, act_wave_reader, settings):
   window_size_latency = int(0.9 * samples_per_window)
   sample_scaler = 2 ** (BITS_PER_BYTE * ref_wave_reader.GetSampleWidth() - 1)
 
+#按照samples_per_chunk大小分段处理数据.
   while position_frames_start < ref_wave_reader.GetNumberOfSamples():
     ref_wave_data = ref_wave_reader.ReadSamples(position_frames_start,
                                                 samples_per_chunk)

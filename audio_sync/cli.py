@@ -243,6 +243,7 @@ def _Main(args):
         args.silence_threshold, args.min_silence_length)
     latencies, dropouts = audio_sync.AnalyzeAudios(
         args.ref_wav_path, args.act_wav_path, settings)
+    print(latencies)
     max_latency, min_latency, avg_latency = GetStats(latencies)
 
     if args.parsable_output:
